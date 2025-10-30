@@ -1,0 +1,136 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { ShoppingCart, Instagram, MessageCircle } from "lucide-react";
+
+export default function TramaOutletHomepage() {
+  return (
+    <div className="min-h-screen bg-white text-gray-800 font-[Poppins] relative">
+      {/* Botão flutuante de WhatsApp */}
+      <a
+        href="https://wa.me/5592999999999?text=Olá!%20Gostaria%20de%20falar%20com%20a%20Trama%20Outlet."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 bg-[#4C6FAE] text-white rounded-full shadow-lg p-4 hover:bg-[#3b5d94] transition flex items-center justify-center z-50"
+      >
+        <MessageCircle className="w-6 h-6" />
+      </a>
+
+      {/* Header */}
+      <header className="flex items-center justify-between px-8 py-6 border-b border-gray-100">
+        <h1 className="text-2xl font-bold tracking-tight text-[#4C6FAE]">Trama Outlet</h1>
+        <nav className="hidden md:flex gap-8 text-gray-700 text-sm">
+          <a href="#loja" className="hover:text-[#4C6FAE] transition">Loja</a>
+          <a href="#sobre" className="hover:text-[#4C6FAE] transition">Sobre</a>
+          <a href="#contato" className="hover:text-[#4C6FAE] transition">Contato</a>
+        </nav>
+        <div className="flex gap-3">
+          <Button className="bg-[#EDEAE5] text-[#4C6FAE] rounded-full px-4 py-2 text-sm flex items-center gap-2 hover:bg-[#e3e0db] transition">
+            <ShoppingCart className="w-4 h-4" /> Carrinho
+          </Button>
+          <Button className="bg-[#4C6FAE] text-white rounded-full px-6 py-2 text-sm hover:bg-[#3b5d94] transition">Entrar</Button>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="px-8 md:px-20 py-20 text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6"
+        >
+          Onde o estilo se entrelaça com o preço justo.
+        </motion.h2>
+        <p className="text-gray-600 max-w-2xl mx-auto mb-8">
+          Moda acessível com qualidade e refinamento. Conheça nossas coleções inspiradas na leveza, elegância e conexão entre o bom gosto e o preço justo.
+        </p>
+        <Button className="bg-[#4C6FAE] text-white rounded-full px-8 py-3 text-base hover:bg-[#3b5d94] transition">
+          Ver Coleção
+        </Button>
+      </section>
+
+      {/* Produtos em destaque */}
+      <section id="loja" className="px-8 md:px-20 py-16 bg-[#EDEAE5]">
+        <h3 className="text-2xl font-semibold mb-10 text-center text-[#4C6FAE]">Peças em Destaque</h3>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+          {[1, 2, 3].map((item) => (
+            <Card key={item} className="rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition">
+              <CardContent className="p-0">
+                <img
+                  src={`https://source.unsplash.com/600x800/?fashion,clothes,${item}`}
+                  alt="Peça de roupa"
+                  className="w-full h-[420px] object-cover"
+                />
+                <div className="p-5 text-center">
+                  <h4 className="font-medium text-gray-800 mb-2">Blusa Casual Feminina</h4>
+                  <p className="text-[#4C6FAE] font-semibold mb-2">R$ 89,90</p>
+                  <a
+                    href="https://wa.me/5592999999999?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20esta%20peça:%20Blusa%20Casual%20Feminina."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button className="bg-[#4C6FAE] text-white rounded-full px-5 py-2 text-sm hover:bg-[#3b5d94] transition flex items-center gap-2">
+                      <MessageCircle className="w-4 h-4" /> Pedir via WhatsApp
+                    </Button>
+                  </a>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Carrinho e Checkout */}
+      <section id="carrinho" className="px-8 md:px-20 py-16 text-center">
+        <h3 className="text-2xl font-semibold mb-6 text-[#4C6FAE]">Seu Carrinho</h3>
+        <p className="text-gray-600 mb-4">Revise suas peças e finalize o pedido com segurança.</p>
+        <Button className="bg-[#4C6FAE] text-white rounded-full px-8 py-3 text-base hover:bg-[#3b5d94] transition">
+          Finalizar Compra
+        </Button>
+      </section>
+
+      {/* Sobre a marca */}
+      <section id="sobre" className="px-8 md:px-20 py-20 text-center">
+        <h3 className="text-2xl font-semibold mb-6 text-[#4C6FAE]">Sobre a Trama Outlet</h3>
+        <p className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
+          A Trama Outlet nasceu do desejo de unir o melhor da moda com preços justos. Cada peça é pensada para oferecer conforto, qualidade e estilo sem excessos — refletindo a essência de quem valoriza o equilíbrio entre sofisticação e acessibilidade.
+        </p>
+      </section>
+
+      {/* Instagram Section */}
+      <section id="instagram" className="px-8 md:px-20 py-16 bg-[#EDEAE5] text-center">
+        <h3 className="text-2xl font-semibold mb-6 text-[#4C6FAE] flex justify-center items-center gap-2"><Instagram className="w-6 h-6" /> Siga a Trama no Instagram</h3>
+        <p className="text-gray-700 mb-8">Acompanhe nossas novidades, promoções e looks inspiradores diretamente no seu feed.</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map((i) => (
+            <img key={i} src={`https://source.unsplash.com/300x300/?fashion,outfit,${i}`} alt="Post do Instagram" className="w-full h-64 object-cover rounded-xl" />
+          ))}
+        </div>
+        <Button className="mt-8 bg-[#4C6FAE] text-white rounded-full px-8 py-3 text-base hover:bg-[#3b5d94] transition">
+          Ver no Instagram
+        </Button>
+      </section>
+
+      {/* Contato */}
+      <section id="contato" className="px-8 md:px-20 py-16 text-center">
+        <h3 className="text-2xl font-semibold mb-6 text-[#4C6FAE]">Fale Conosco</h3>
+        <p className="text-gray-700 mb-6">Tire suas dúvidas ou faça seu pedido diretamente no nosso WhatsApp.</p>
+        <a
+          href="https://wa.me/5592999999999?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20na%20Trama%20Outlet."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button className="bg-[#4C6FAE] text-white rounded-full px-8 py-3 text-base hover:bg-[#3b5d94] transition flex items-center gap-2">
+            <MessageCircle className="w-5 h-5" /> Falar no WhatsApp
+          </Button>
+        </a>
+      </section>
+
+      {/* Rodapé */}
+      <footer className="py-6 border-t border-gray-200 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Trama Outlet — Moda inteligente e acessível.
+      </footer>
+    </div>
+  );
+}
